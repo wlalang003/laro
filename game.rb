@@ -1,33 +1,16 @@
-require 'rubygems' # only necessary in Ruby 1.8
-require 'gosu'
-require 'ship'
-require 'projectile'
+require 'rubygems' rescue nil# only necessary in Ruby 1.8
+require 'chingu'
+require_all 'lib'
+include Gosu
 
-class MyWindow < Gosu::Window
+class Laro < Chingu::Window
   def initialize
-   super(640, 480, false)
-   self.caption = 'Hello World!'
-   @ship = Ship.new(self)
-  end
-  
-  def update
-    if button_down? Gosu::KbLeft then
-      @ship.move_left
-    end
-    
-    if button_down? Gosu::KbRight then
-      @ship.move_right
-    end
-    
-    if button_down? Gosu::KbSpace then
-      @ship.generate_rocket
-    end
-  end
-  
-  def draw
-    @ship.draw
+   super(800, 600, false)
+   self.caption = 'laro'
+   self.input = { :escape => :exit }
+   
+   push_game_state(Play)
   end
 end
 
-window = MyWindow.new
-window.show
+Laro.new.show
