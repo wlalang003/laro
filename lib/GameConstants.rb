@@ -1,0 +1,4 @@
+module GameConstants
+  WEAPON_MACHINE_GUN = 1
+  WEAPON_ROCKET_LAUNCHER = 2
+end

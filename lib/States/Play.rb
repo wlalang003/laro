@@ -7,7 +7,9 @@ class Play < Chingu::GameState
                     [:holding_d, :holding_right, :holding_pad_right] => :move_right, 
                     [:holding_w, :holding_up, :holding_pad_up] => :move_up, 
                     [:holding_s, :holding_down, :holding_pad_down] => :move_down, 
-                    [:space, :return, :pad_button_2] => :fire
+                    [:holding_space, :return, :pad_button_2] => :fire,
+                    [:'1'] => :switch_to_machine_gun,
+                    [:'2'] => :switch_to_rocket_launcher
                   }
   end
   

@@ -1,10 +1,10 @@
 class Projectile < Chingu::GameObject
   def initialize(options = {})
-  super(options.merge(:image => Image["images/rocket.png"], :zorder => 0))
-    p "fire"
+    super(options.merge(:zorder => 0))
   end
   
   def update
-    @y -= 20
+    self.destroy if @y < -20
+    @y -= 30
   end
 end
